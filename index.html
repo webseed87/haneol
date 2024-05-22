@@ -492,7 +492,7 @@
                 $(window).on('scroll', function() {
             var scrollY = $(this).scrollTop();
             var header = $('header');
-            var headerHeight = header.height();
+            var headerHeight = header.outerHeight();
             if (scrollY >= headerHeight) {
                 header.addClass('ul-top');
             } else {
