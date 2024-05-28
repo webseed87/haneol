@@ -879,20 +879,16 @@ margin: 0;
 
 
 /* 애니메이션 추가 */
-@keyframes fadeIn {
-0% {
-opacity: 0;
+
+.fade-in {
+    transform: translateY(-150px);
+opacity: 0; 
+transition: .2s;
 }
-100% {
-opacity: 1;
-}
-}
-.animate.fade-in {
-animation-name: fadeIn;
-animation-duration: 2s; 
-animation-timing-function: ease-in; 
-animation-fill-mode: forwards;
-opacity: 1; 
+
+.fade-in.active{
+
+    opacity: 1; 
 }
 
 @keyframes slideInFromLeft {
@@ -906,7 +902,15 @@ opacity: 1;
 }
 }
 
-
+.in-left{
+    transform: translateX(-100%);
+    opacity: 0; 
+    transition: .2s;
+}
+.in-left.active{
+    transform: translateX(0);
+    opacity: 1; 
+}
 .animate.in-left {
 animation: slideInFromLeft 1s ease-out forwards;
 animation-fill-mode: forwards;

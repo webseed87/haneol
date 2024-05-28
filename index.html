@@ -168,8 +168,8 @@
         <div class="section business">
             <div class="buz-contents">
                 <div class="title ">
-                    <h3 class="animate"><span>B</span>usiness</h3>
-                    <p class="animate">기업ERP와 ASP를 전문으로 하는 회사로서
+                    <h3 class="in-left"><span>B</span>usiness</h3>
+                    <p class="in-left">기업ERP와 ASP를 전문으로 하는 회사로서
                         '1993년 창립 이래 최선을 다한 결과"가장 앞선 제품력과 기술력"을 보유하고 있습니다.</p>
                 </div>
                 <ul class="buz-cate">
@@ -195,7 +195,7 @@
         <div class="section news">
 
             <div class="buz-contents">
-                <div class="title animate">
+                <div class="title in-left">
                     <h3><span>N</span>ews room</h3>
                     <p>한얼 아이티의 최신 소식을 전해드립니다.</p>
                 </div>
@@ -328,7 +328,7 @@
 
         <div class="section customer">
 
-            <div class="title animate">
+            <div class="title fade-in">
                 <h3><span>C</span>lients</h3>
                 <p>한얼 아이티의 고객사입니다.</p>
             </div>
@@ -360,147 +360,10 @@
             </div>
         </div>
 
-        <script>
-           $(document).ready(function () {
-    function initializeFullpage() {
-        var myFullpage = new fullpage('#fullpage', {
-            menu: '#menu',
-            slidesNavigation: true,
-            lazyLoad: true,
-            credits: { enabled: false },
-            navigation: true,
-            navigationPosition: 'right',
-            showActiveTooltip: true,
-
-            afterLoad: function (origin, destination, direction) {
-                var $nav = $('#fp-nav ul li a span');
-                var $list = $('header');
-                if (destination.index === 0) {
-                    $nav.removeClass('nav-black').addClass('nav-white');
-                    $list.removeClass('ul-black');
-                } else if (destination.index === 1) {
-                    $nav.removeClass('nav-white').addClass('nav-black');
-                    $list.addClass('ul-black');
-                } else if (destination.index === 2) {
-                    $nav.removeClass('nav-white').addClass('nav-black');
-                    $list.addClass('ul-black');
-                } else if (destination.index === 3) {
-                    $nav.removeClass('nav-black').addClass('nav-white');
-                    $list.removeClass('ul-black');
-                }
-                
-                $('.animate', destination.item).removeClass('in-left');
-                $('.animate', destination.item).addClass('in-left');
-            }
-        });
-    }
-
-    if ($(window).width() > 720) { 
-        initializeFullpage();
-    }
-
-    $(window).resize(function () {
-        if ($(window).width() > 720) {
-            if ($.fn.fullpage && !$.fn.fullpage.initialized) {
-                initializeFullpage();
-            }
-        } else {
-            if ($.fn.fullpage && $.fn.fullpage.initialized) {
-                fullpage_api.destroy('all');
-            }
-        }
-    });
-});
-
-
-
-
-
-
-
-
-        </script>
+    
 
         <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-        <script>
-            const swiper1 = new Swiper('.swiper1', {
-                direction: 'horizontal',
-                loop: true,
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                autoplay: {
-                    delay: 5000,
-                    disableOnInteraction: false,
-                },
-                scrollbar: {
-                    el: '.swiper-scrollbar',
-                },
-                on: {
-                    slideChange: function () {
-                        $('.animate').removeClass('in-left');
-                        var activeSlide = this.slides[this.activeIndex];
-                        $(activeSlide).find('.animate').addClass('in-left');
-                    }
-                }
-            });
-
-
-            const swiper2 = new Swiper('.swiper2', {
-                slidesPerView: 1,
-                spaceBetween: 20,
-                direction: 'horizontal',
-                breakpoints: {
-                    1280: {
-                        slidesPerView: 3,
-                        spaceBetween: 20
-                    },
-                    720: {
-                        slidesPerView: 2,
-                        spaceBetween: 20
-                    }
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next1',
-                    prevEl: '.swiper-button-prev1',
-                },
-                scrollbar: {
-                    el: ' .swiper-scrollbar',
-                },
-            });
-
-            $(document).ready(function () {
-
-
-                $('.menu').on("mouseenter", function () {
-                    $("header").addClass("hover");
-                })
-                $('header').on("mouseleave", function () {
-                    $("header").removeClass("hover");
-                })
-                $('.icon-bar').on("click", function () {
-                    $(".all-menu").css("display", "flex");
-                })
-                $('.top .icon-bar').on("click", function () {
-                    $(".all-menu").css("display", "none");
-                })
-                $(window).on('scroll', function() {
-            var scrollY = $(this).scrollTop();
-            var header = $('header');
-            var headerHeight = header.outerHeight();
-            if (scrollY >= headerHeight) {
-                header.addClass('ul-top');
-            } else {
-                header.removeClass('ul-top');
-            }
-        });
-            });
-        </script>
+        <script src="/js/common.js"> </script>
 </body>
 
 </html>
